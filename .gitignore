@@ -1,0 +1,22 @@
+# Java & Maven
+backend/target/
+*.class
+*.jar
+*.war
+.idea/
+*.iml
+.project
+.settings/
+.classpath
+
+# Node & React
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+
+# Operating System & IDE
+.DS_Store
+Thumbs.db
+backend/uploads/*
+!backend/uploads/.gitkeep
