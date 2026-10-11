@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Lock, X, Eye, EyeOff, ShieldAlert, Check, UserCheck } from 'lucide-react';
+import { Lock, X, Eye, EyeOff, ShieldAlert, UserCheck } from 'lucide-react';
 import { productApi } from '../api/productApi';
 
 export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
@@ -33,12 +33,6 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
     } finally {
       setLoading(false);
     }
-  };
-
-  const fillQuickCredentials = (u, p) => {
-    setUsername(u);
-    setPassword(p);
-    setError('');
   };
 
   return (
@@ -104,7 +98,7 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
               <input
                 type="text"
                 className="form-input"
-                placeholder="Enter username (e.g. admin1 or admin2)"
+                placeholder="Enter admin username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 autoFocus
@@ -136,65 +130,6 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
                   }}
                 >
                   {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
-                </button>
-              </div>
-            </div>
-
-            {/* Quick Helper for the 2 authorized admins */}
-            <div
-              style={{
-                background: '#f8fafc',
-                border: '1px solid #e2e8f0',
-                borderRadius: 8,
-                padding: '12px',
-                marginTop: 16,
-                fontSize: '0.78rem',
-              }}
-            >
-              <div style={{ fontWeight: 700, color: '#475569', marginBottom: 6 }}>
-                Authorized Store Admins:
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                <button
-                  type="button"
-                  onClick={() => fillQuickCredentials('admin1', 'haji@123')}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    padding: '6px 8px',
-                    background: '#ffffff',
-                    border: '1px solid #cbd5e1',
-                    borderRadius: 6,
-                    fontSize: '0.76rem',
-                    textAlign: 'left',
-                  }}
-                >
-                  <div>
-                    <strong>Admin 1 (Owner):</strong> <code>admin1</code>
-                  </div>
-                  <span style={{ color: '#d32f2f', fontWeight: 600 }}>Fill Login →</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => fillQuickCredentials('admin2', 'cycle@123')}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    padding: '6px 8px',
-                    background: '#ffffff',
-                    border: '1px solid #cbd5e1',
-                    borderRadius: 6,
-                    fontSize: '0.76rem',
-                    textAlign: 'left',
-                  }}
-                >
-                  <div>
-                    <strong>Admin 2 (Manager):</strong> <code>admin2</code>
-                  </div>
-                  <span style={{ color: '#d32f2f', fontWeight: 600 }}>Fill Login →</span>
                 </button>
               </div>
             </div>
